@@ -242,10 +242,6 @@ public class XMLPetriNetReader {
 
     }//ToDo: TimeIntervals:  Implementar, reemplazar void por lo que corresponda.
 
-    public void readPolicies(){
-
-    } //ToDo: Policies:  Implementar, reemplazar void por lo que corresponda.
-
 
 }
 

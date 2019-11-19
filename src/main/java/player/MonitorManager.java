@@ -1,5 +1,6 @@
 package player;
 
+import java.util.ArrayList;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -29,13 +30,36 @@ public class MonitorManager {
     }
 
     public boolean exec(Transition t){
+        Transition next_t;
+
         this.lock.lock();
+
         try{
-            System.out.println("Fired: "+this.count+" transition: "+this.policyManager.whichTransition(this.petriNetModel.getSensibilizedTransitions()).toString());
+            while(!this.petriNetModel.isSensibilized(t)){
+                next_t = this.policyManager.whichTransition(this.petriNetModel.getSensibilizedTransitions());
+                this.ConditionQueue[next_t.getIndex()].signal();
+                try {
+                    this.ConditionQueue[t.getIndex()].await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            this.petriNetModel.triggerTransition(t);
+            next_t = this.policyManager.whichTransition(this.petriNetModel.getSensibilizedTransitions());
+            this.ConditionQueue[next_t.getIndex()].signal();
             this.op.run();
             return (this.count > 0);
         } finally {
             this.lock.unlock();
         }
+    }
+
+    private ArrayList<Transition> and(ArrayList<Transition> tList1, ArrayList<Transition> tList2) {
+        ArrayList<Transition> result = new ArrayList<>();
+        for (Transition t: tList1) {
+            if(tList2.contains(t))
+                result.add(t);
+        }
+        return result;
     }
 }
