@@ -1,4 +1,4 @@
-package player;
+package main;
 
 import static org.junit.Assert.assertTrue;
 

@@ -1,4 +1,4 @@
-package player;
+package main;
 
 import org.apache.commons.math3.linear.*;
 import org.w3c.dom.Document;

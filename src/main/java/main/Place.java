@@ -1,4 +1,4 @@
-package player;
+package main;
 
 public class Place extends PetriNetElement {
     public Place(String name, int index) {

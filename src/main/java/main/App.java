@@ -1,9 +1,8 @@
-package player;
+package main;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * Hello world!
@@ -21,6 +20,9 @@ public class App
         petriNetReader.setfXMLFile(file);
         PetriNetModel petriNetModel = new PetriNetModel(petriNetReader, true);
 
+        petriNetModel.addPlaceInvariant(new PInvariant(new String[] {"P0", "P1"},  2));
+        petriNetModel.addPlaceInvariant(new PInvariant(new String[] {"P2", "P3"},  15));
+
         PolicyManager policyManager = new PolicyManager();
         RandomPolicy randomPolicy = new RandomPolicy();
 
@@ -32,9 +34,8 @@ public class App
 
         ArrayList<Task> taskList = new ArrayList<>();
         taskList.add(new Task(new String[] {"T0", "T1"}, monitor, petriNetModel, "Producer", true));
-//        taskList.add(new Task(new String[] {"T1"}, monitor, petriNetModel, "worker1", true));
-        taskList.add(new Task(new String[] {"T2", "T3"}, monitor, petriNetModel, "Consumer", true));
-//        taskList.add(new Task(new String[] {"T3"}, monitor, petriNetModel, "worker2", true));
+        for(int i=0; i<7; i++)
+            taskList.add(new Task(new String[] {"T2", "T3"}, monitor, petriNetModel, "Consumer-"+i, true));
 
         ThreadGroup tg = new ThreadGroup("Task Threads");
 

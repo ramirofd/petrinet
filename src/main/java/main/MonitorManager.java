@@ -1,8 +1,10 @@
-package player;
+package main;
 
 import java.util.ArrayList;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
+
+import static org.junit.Assert.assertTrue;
 
 public class MonitorManager {
     private int count;
@@ -37,19 +39,30 @@ public class MonitorManager {
         try{
             while(!this.petriNetModel.isSensibilized(t)){
                 next_t = this.policyManager.whichTransition(this.petriNetModel.getSensibilizedTransitions());
+                this.ConditionQueue[t.getIndex()].await();
                 this.ConditionQueue[next_t.getIndex()].signal();
-                try {
-                    this.ConditionQueue[t.getIndex()].await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
             this.petriNetModel.triggerTransition(t);
+            assertTrue(this.petriNetModel.checkPlaceInvariants());
             next_t = this.policyManager.whichTransition(this.petriNetModel.getSensibilizedTransitions());
             this.ConditionQueue[next_t.getIndex()].signal();
             this.op.run();
-            return (this.count > 0);
-        } finally {
+            if(this.count < 0){
+                System.out.println
+                    (Thread.currentThread().getName()+": Interrumpiendo threads");
+                Thread.currentThread().getThreadGroup().interrupt();
+                return false;
+            }
+            return true;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return false;
+        } catch (AssertionError e){
+            System.out.println
+                (Thread.currentThread().getName()+ ": [!] ERROR: Algun invariante no se cumple, terminando");
+            System.exit(-1);
+            return false;
+        }finally {
             this.lock.unlock();
         }
     }

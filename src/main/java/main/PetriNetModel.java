@@ -1,4 +1,4 @@
-package player;
+package main;
 
 import org.apache.commons.math3.linear.ArrayRealVector;
 import org.apache.commons.math3.linear.RealMatrix;
@@ -16,6 +16,7 @@ public class PetriNetModel {
     private ArrayList<Transition> t_list;
     private ArrayList<Place> p_list;
     private PrintUtils utils;
+    private ArrayList<PInvariant> pInvariants;
 
     PetriNetModel(XMLPetriNetReader pnetreader, boolean verbose) {
         this.incidence = pnetreader.readIncidenceMatrix(verbose);
@@ -26,6 +27,7 @@ public class PetriNetModel {
         this.calculateSensibilizedTransitions();
         this.utils = new PrintUtils();
         this.verbose = verbose;
+        this.pInvariants = new ArrayList<PInvariant>();
     }
 
     private void calculateSensibilizedTransitions(){
@@ -38,6 +40,17 @@ public class PetriNetModel {
                 sens_transitions.setEntry(i,1);
             }
         }
+    }
+
+    private int getPlaceMark(String name) {
+        int i;
+        for (i=0; i<this.p_list.size(); i++) {
+            Place p = this.p_list.get(i);
+            if(p.getName().equals(name)){
+                break;
+            }
+        }
+        return (int)this.marking.getEntry(i);
     }
 
     public boolean isSensibilized(Transition t)
@@ -104,5 +117,22 @@ public class PetriNetModel {
 
     public int getAmountTransitions() {
         return t_list.size();
+    }
+
+    public void addPlaceInvariant(PInvariant pInvariant) {
+        this.pInvariants.add(pInvariant);
+    }
+
+    public boolean checkPlaceInvariants(){
+        for (PInvariant pInv : pInvariants) {
+            int sum=0;
+            for (String placeName : pInv.getPlaceArray()) {
+                sum += this.getPlaceMark(placeName);
+            }
+            if (sum!=pInv.getValue()) {
+                return false;
+            }
+        }
+        return true;
     }
 }

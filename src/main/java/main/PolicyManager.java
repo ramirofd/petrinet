@@ -1,8 +1,7 @@
-package player;
+package main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.Callable;
 
 public class PolicyManager {
 
