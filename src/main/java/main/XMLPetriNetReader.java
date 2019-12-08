@@ -20,6 +20,8 @@ public class XMLPetriNetReader {
     private NodeList transitionNodesList;
     private NodeList placeNodesList;
     private NodeList arcNodesList;
+    private ArrayList<String> t_list;
+    private ArrayList<String> p_list;
 
     public XMLPetriNetReader(){
         utils = new PrintUtils();
@@ -44,6 +46,8 @@ public class XMLPetriNetReader {
         this.fXMLFile = fXMLFile;
 
         this.separateXMLFileIntoNodeLists();
+        this.getTransitionsList(false);
+        this.getPlacesList(false);
         System.out.println("*** Found: "+this.transitionNodesList.getLength()+" transitions.");
         System.out.println("*** Found: "+this.placeNodesList.getLength()+" places.");
         System.out.println("*** Found: "+this.arcNodesList.getLength()+" arcs.");
@@ -68,12 +72,14 @@ public class XMLPetriNetReader {
     public ArrayList<Transition> getTransitionsList(boolean verbose)
     {
         ArrayList<Transition> t_list = new ArrayList<>();
+        this.t_list = new ArrayList<>();
         for (int i = 0; i < this.transitionNodesList.getLength(); i++) {
 
             Node nNode = this.transitionNodesList.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
                 String name = eElement.getAttribute("id");
+                this.t_list.add(name);
                 t_list.add(new Transition(name, i));
                 if(verbose)
                 {
@@ -87,12 +93,14 @@ public class XMLPetriNetReader {
     public ArrayList<Place> getPlacesList(boolean verbose)
     {
         ArrayList<Place> p_list = new ArrayList<>();
+        this.p_list = new ArrayList<>();
         for (int i = 0; i < this.placeNodesList.getLength(); i++) {
 
             Node nNode = this.placeNodesList.item(i);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
                 String name = eElement.getAttribute("id");
+                this.p_list.add(name);
                 p_list.add(new Place(name, i));
                 if(verbose)
                 {
@@ -121,7 +129,7 @@ public class XMLPetriNetReader {
                     String targetId = eElement.getAttribute("target");
                     String arc_type = eElement.getElementsByTagName("type").item(0).getAttributes().getNamedItem("value").getTextContent();
 
-                    if(elementId.startsWith("P") && arc_type.equals("normal")){
+                    if(this.p_list.contains(sourceId) && arc_type.equals("normal")){
                         String[] values_content = eElement.getElementsByTagName("value").item(0).getTextContent().split(",");
                         int arcWeight = Integer.parseInt(values_content[values_content.length-1]);
                         int placeIdx = getIndex(this.placeNodesList,sourceId);
@@ -129,7 +137,7 @@ public class XMLPetriNetReader {
                         prevIncidence.setEntry(placeIdx,transitionIdx,arcWeight);
                     }
 
-                    if(elementId.startsWith("T") && arc_type.equals("normal")){
+                    if(this.t_list.contains(sourceId) && arc_type.equals("normal")){
                         String[] values_content = eElement.getElementsByTagName("value").item(0).getTextContent().split(",");
                         int arcWeight = Integer.parseInt(values_content[values_content.length-1]);
                         int placeIdx = getIndex(this.placeNodesList,targetId);
