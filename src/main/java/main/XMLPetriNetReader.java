@@ -219,13 +219,13 @@ public class XMLPetriNetReader {
                     String targetId = eElement.getAttribute("target");
                     String arc_type = eElement.getElementsByTagName("type").item(0).getAttributes().getNamedItem("value").getTextContent();
 
-                    if(elementId.startsWith("P") && arc_type.equals("inhibitor")){
+                    if(this.p_list.contains(sourceId) && arc_type.equals("inhibitor")){
                         int placeIdx = getIndex(this.placeNodesList,sourceId);
                         int transitionIdx = getIndex(this.transitionNodesList,targetId);
                         inhibition.setEntry(placeIdx,transitionIdx,1);
                     }
 
-                    if(elementId.startsWith("T") && arc_type.equals("inhibitor")){
+                    if(this.t_list.contains(sourceId) && arc_type.equals("inhibitor")){
                         int placeIdx = getIndex(this.placeNodesList,targetId);
                         int transitionIdx = getIndex(this.transitionNodesList,sourceId);
                         inhibition.setEntry(placeIdx,transitionIdx,1);
