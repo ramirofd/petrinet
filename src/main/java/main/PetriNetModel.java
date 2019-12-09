@@ -64,7 +64,7 @@ public class PetriNetModel {
             RealVector triggeredTransition = new ArrayRealVector(this.sens_transitions.getDimension());
             triggeredTransition.setEntry(t.getIndex(), 1.);
             this.marking = this.marking.add(this.incidence.operate(triggeredTransition));
-            System.out.println("Fired: "+t.toString()+".");
+            System.out.print(t.toString()+",");
             return true;
         }
         else

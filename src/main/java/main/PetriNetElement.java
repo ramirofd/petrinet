@@ -27,7 +27,7 @@ public class PetriNetElement {
     }
 
     public String toString(){
-        return String.format("%d: %s", this.index, this.name);
+        return String.format("%s", this.name);
     }
 
 

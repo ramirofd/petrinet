@@ -31,11 +31,7 @@ public class Task implements Runnable{
             }
         }
         if(this.verbose)
-            System.out.println
-                (
-                "Msg From:"+ Thread.currentThread().getName()+
-                        "\nThread terminado"
-                );
+            System.out.println(Thread.currentThread().getName()+ ": Thread terminado");
     }
 
     public String getName() {

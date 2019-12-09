@@ -55,7 +55,7 @@ public class MonitorManager {
             }
             return true;
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println(Thread.currentThread().getName()+": Thread interrumpido");
             return false;
         } catch (AssertionError e){
             System.out.println

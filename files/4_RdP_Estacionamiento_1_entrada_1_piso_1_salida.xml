@@ -1,0 +1,1107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><pnml>
+<net id="Net-One" type="P/T net">
+<token id="Default" enabled="true" red="0" green="0" blue="0"/>
+<place id="bajando_por_rampa">
+<graphics>
+<position x="1230.0" y="795.0"/>
+</graphics>
+<name>
+<value>bajando_por_rampa</value>
+<graphics>
+<offset x="64.0" y="-13.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="buscando_lugar">
+<graphics>
+<position x="960.0" y="510.0"/>
+</graphics>
+<name>
+<value>buscando_lugar</value>
+<graphics>
+<offset x="-8.0" y="11.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="cajero">
+<graphics>
+<position x="660.0" y="870.0"/>
+</graphics>
+<name>
+<value>cajero</value>
+<graphics>
+<offset x="34.5" y="-18.75"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>1</value>
+</capacity>
+</place>
+<place id="espacio_cola_para_ticket_a">
+<graphics>
+<position x="990.0" y="165.0"/>
+</graphics>
+<name>
+<value>espacio_cola_para_ticket_a</value>
+<graphics>
+<offset x="168.0" y="-7.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,2</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="espacio_para_ticket_a">
+<graphics>
+<position x="990.0" y="330.0"/>
+</graphics>
+<name>
+<value>espacio_para_ticket_a</value>
+<graphics>
+<offset x="151.0" y="-3.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="esperando_para_salir">
+<graphics>
+<position x="960.0" y="795.0"/>
+</graphics>
+<name>
+<value>esperando_para_salir</value>
+<graphics>
+<offset x="75.25" y="60.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>3</value>
+</capacity>
+</place>
+<place id="esperando_ticket_a">
+<graphics>
+<position x="930.0" y="165.0"/>
+</graphics>
+<name>
+<value>esperando_ticket_a</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="ocupado_piso_1">
+<graphics>
+<position x="1020.0" y="645.0"/>
+</graphics>
+<name>
+<value>ocupado_piso_1</value>
+<graphics>
+<offset x="-2.0" y="15.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="ocupado_piso_2">
+<graphics>
+<position x="1365.0" y="645.0"/>
+</graphics>
+<name>
+<value>ocupado_piso_2</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="pagando_a">
+<graphics>
+<position x="660.0" y="765.0"/>
+</graphics>
+<name>
+<value>pagando_a</value>
+<graphics>
+<offset x="41.5" y="-10.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="rampa_disponible">
+<graphics>
+<position x="1230.0" y="645.0"/>
+</graphics>
+<name>
+<value>rampa_disponible</value>
+<graphics>
+<offset x="-3.0" y="17.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="sacando_ticket_a">
+<graphics>
+<position x="930.0" y="330.0"/>
+</graphics>
+<name>
+<value>sacando_ticket_a</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="saliendo_a">
+<graphics>
+<position x="465.0" y="795.0"/>
+</graphics>
+<name>
+<value>saliendo_a</value>
+<graphics>
+<offset x="41.0" y="-16.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="subiendo_por_rampa">
+<graphics>
+<position x="1230.0" y="510.0"/>
+</graphics>
+<name>
+<value>subiendo_por_rampa</value>
+<graphics>
+<offset x="62.0" y="-14.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="vacio_piso_1">
+<graphics>
+<position x="900.0" y="645.0"/>
+</graphics>
+<name>
+<value>vacio_piso_1</value>
+<graphics>
+<offset x="-16.0" y="18.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,30</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="vacio_piso_2">
+<graphics>
+<position x="1425.0" y="645.0"/>
+</graphics>
+<name>
+<value>vacio_piso_2</value>
+<graphics>
+<offset x="118.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,30</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<transition id="avanzar_salida_a">
+<graphics>
+<position x="555.0" y="795.0"/>
+</graphics>
+<name>
+<value>avanzar_salida_a</value>
+<graphics>
+<offset x="38.0" y="53.25"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>3.0</value>
+</rate>
+<timed>
+<value>true</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="bajar_rampa">
+<graphics>
+<position x="1110.0" y="795.0"/>
+</graphics>
+<name>
+<value>bajar_rampa</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="entrar_autos_en_a">
+<graphics>
+<position x="960.0" y="90.0"/>
+</graphics>
+<name>
+<value>entrar_autos_en_a</value>
+<graphics>
+<offset x="120.83333333333333" y="3.1666666666666643"/>
+</graphics>
+</name>
+<orientation>
+<value>90</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="estacionar_piso_1">
+<graphics>
+<position x="960.0" y="570.0"/>
+</graphics>
+<name>
+<value>estacionar_piso_1</value>
+<graphics>
+<offset x="-13.75" y="18.75"/>
+</graphics>
+</name>
+<orientation>
+<value>90</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="estacionar_piso_2">
+<graphics>
+<position x="1365.0" y="510.0"/>
+</graphics>
+<name>
+<value>estacionar_piso_2</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="pagar_por_a">
+<graphics>
+<position x="795.0" y="795.0"/>
+</graphics>
+<name>
+<value>pagar_por_a</value>
+<graphics>
+<offset x="64.0" y="55.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="pasar_a_sacar_ticket_a">
+<graphics>
+<position x="960.0" y="225.0"/>
+</graphics>
+<name>
+<value>pasar_a_sacar_ticket_a</value>
+<graphics>
+<offset x="-6.25" y="26.25"/>
+</graphics>
+</name>
+<orientation>
+<value>270</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>true</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="salir_de_playa_a">
+<graphics>
+<position x="345.0" y="795.0"/>
+</graphics>
+<name>
+<value>salir_de_playa_a</value>
+<graphics>
+<offset x="55.0" y="60.5"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="salir_del_piso_1">
+<graphics>
+<position x="960.0" y="735.0"/>
+</graphics>
+<name>
+<value>salir_del_piso_1</value>
+<graphics>
+<offset x="-15.75" y="15.25"/>
+</graphics>
+</name>
+<orientation>
+<value>90</value>
+</orientation>
+<rate>
+<value>0.2</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="salir_del_piso_2">
+<graphics>
+<position x="1365.0" y="795.0"/>
+</graphics>
+<name>
+<value>salir_del_piso_2</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="subir_de_a_a_piso_1">
+<graphics>
+<position x="960.0" y="420.0"/>
+</graphics>
+<name>
+<value>subir_de_a_a_piso_1</value>
+<graphics>
+<offset x="1.8333333333333321" y="16.833333333333336"/>
+</graphics>
+</name>
+<orientation>
+<value>90</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="subir_rampa">
+<graphics>
+<position x="1110.0" y="510.0"/>
+</graphics>
+<name>
+<value>subir_rampa</value>
+<graphics>
+<offset x="-5.0" y="35.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<arc id="bajando_por_rampa to bajar_rampa" source="bajando_por_rampa" target="bajar_rampa">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1227" y="807" curvePoint="false"/>
+<arcpath id="001" x="1126" y="812" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="bajar_rampa to esperando_para_salir" source="bajar_rampa" target="esperando_para_salir">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1116" y="807" curvePoint="false"/>
+<arcpath id="001" x="986" y="807" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="bajar_rampa to rampa_disponible" source="bajar_rampa" target="rampa_disponible">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1127" y="802" curvePoint="false"/>
+<arcpath id="001" x="1232" y="668" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="buscando_lugar to subir_rampa" source="buscando_lugar" target="subir_rampa">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="986" y="522" curvePoint="false"/>
+<arcpath id="001" x="1116" y="522" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="BuscandoLugar to T16" source="buscando_lugar" target="estacionar_piso_1">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="971" y="536" curvePoint="false"/>
+<arcpath id="001" x="971" y="576" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="entrar_autos_en_a to esperando_ticket_a" source="entrar_autos_en_a" target="esperando_ticket_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="966" y="106" curvePoint="false"/>
+<arcpath id="001" x="946" y="162" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="esperando_ticket_a to pasar_a_sacar_ticket_a" source="esperando_ticket_a" target="pasar_a_sacar_ticket_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="948" y="190" curvePoint="false"/>
+<arcpath id="001" x="967" y="231" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="estacionar_piso_2 to ocupado_piso_2" source="estacionar_piso_2" target="ocupado_piso_2">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1377" y="537" curvePoint="false"/>
+<arcpath id="001" x="1377" y="642" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="estacionar_piso_2 to rampa_disponible" source="estacionar_piso_2" target="rampa_disponible">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1371" y="527" curvePoint="false"/>
+<arcpath id="001" x="1252" y="646" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="ocupado_piso_2 to salir_del_piso_2" source="ocupado_piso_2" target="salir_del_piso_2">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1377" y="671" curvePoint="false"/>
+<arcpath id="001" x="1377" y="792" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P0 to T3" source="sacando_ticket_a" target="subir_de_a_a_piso_1">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="946" y="356" curvePoint="false"/>
+<arcpath id="001" x="966" y="426" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P11 to T13" source="esperando_para_salir" target="pagar_por_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="957" y="807" curvePoint="false"/>
+<arcpath id="001" x="811" y="807" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P12 to T13" source="cajero" target="pagar_por_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="685" y="874" curvePoint="false"/>
+<arcpath id="001" x="801" y="812" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P13 to T15" source="pagando_a" target="avanzar_salida_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="657" y="780" curvePoint="false"/>
+<arcpath id="001" x="572" y="802" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P15 to T17" source="saliendo_a" target="salir_de_playa_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="462" y="807" curvePoint="false"/>
+<arcpath id="001" x="361" y="807" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P22 to pasar_a_sacar_ticket_a" source="espacio_para_ticket_a" target="pasar_a_sacar_ticket_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="998" y="327" curvePoint="false"/>
+<arcpath id="001" x="977" y="242" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P24 to entrar_autos_en_a" source="espacio_cola_para_ticket_a" target="entrar_autos_en_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="996" y="162" curvePoint="false"/>
+<arcpath id="001" x="976" y="107" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P4 to T12" source="ocupado_piso_1" target="salir_del_piso_1">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1023" y="669" curvePoint="false"/>
+<arcpath id="001" x="976" y="742" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="pasar_a_sacar_ticket_a to P24" source="pasar_a_sacar_ticket_a" target="espacio_cola_para_ticket_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="977" y="232" curvePoint="false"/>
+<arcpath id="001" x="995" y="190" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="pasar_a_sacar_ticket_a to sacando_ticket_a" source="pasar_a_sacar_ticket_a" target="sacando_ticket_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="967" y="241" curvePoint="false"/>
+<arcpath id="001" x="945" y="327" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="rampa_disponible to salir_del_piso_2" source="rampa_disponible" target="salir_del_piso_2">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1251" y="668" curvePoint="false"/>
+<arcpath id="001" x="1372" y="802" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="rampa_disponible to subir_rampa" source="rampa_disponible" target="subir_rampa">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1232" y="645" curvePoint="false"/>
+<arcpath id="001" x="1126" y="527" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="salir_del_piso_2 to bajando_por_rampa" source="salir_del_piso_2" target="bajando_por_rampa">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1371" y="812" curvePoint="false"/>
+<arcpath id="001" x="1256" y="807" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="salir_del_piso_2 to vacio_piso_2" source="salir_del_piso_2" target="vacio_piso_2">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1377" y="792" curvePoint="false"/>
+<arcpath id="001" x="1430" y="670" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="subiendo_por_rampa to estacionar_piso_2" source="subiendo_por_rampa" target="estacionar_piso_2">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1256" y="521" curvePoint="false"/>
+<arcpath id="001" x="1372" y="517" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="subir_de_a_a_piso_1 to BuscandoLugar" source="subir_de_a_a_piso_1" target="buscando_lugar">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="971" y="436" curvePoint="false"/>
+<arcpath id="001" x="971" y="507" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="subir_de_a_a_piso_1 to P22" source="subir_de_a_a_piso_1" target="espacio_para_ticket_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="976" y="427" curvePoint="false"/>
+<arcpath id="001" x="997" y="356" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="subir_rampa to subiendo_por_rampa" source="subir_rampa" target="subiendo_por_rampa">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1127" y="517" curvePoint="false"/>
+<arcpath id="001" x="1227" y="521" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T12 to P11" source="salir_del_piso_1" target="esperando_para_salir">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="971" y="751" curvePoint="false"/>
+<arcpath id="001" x="971" y="792" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T12 to P5" source="salir_del_piso_1" target="vacio_piso_1">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="966" y="741" curvePoint="false"/>
+<arcpath id="001" x="920" y="669" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T13 to P13" source="pagar_por_a" target="pagando_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="802" y="802" curvePoint="false"/>
+<arcpath id="001" x="686" y="779" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T15 to P12" source="avanzar_salida_a" target="cajero">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="571" y="812" curvePoint="false"/>
+<arcpath id="001" x="659" y="873" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T15 to P15" source="avanzar_salida_a" target="saliendo_a">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="561" y="807" curvePoint="false"/>
+<arcpath id="001" x="491" y="807" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="T16 to ocupado_piso_1" source="estacionar_piso_1" target="ocupado_piso_1">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="976" y="587" curvePoint="false"/>
+<arcpath id="001" x="1022" y="645" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="vacio_piso_1 to T16" source="vacio_piso_1" target="estacionar_piso_1">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="921" y="645" curvePoint="false"/>
+<arcpath id="001" x="966" y="586" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="vacio_piso_2 to subir_rampa" source="vacio_piso_2" target="subir_rampa">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1437" y="642" curvePoint="false"/>
+<arcpath id="001" x="1438" y="463" curvePoint="false"/>
+<arcpath id="002" x="1123" y="463" curvePoint="false"/>
+<arcpath id="003" x="1122" y="507" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+</net>
+</pnml>
