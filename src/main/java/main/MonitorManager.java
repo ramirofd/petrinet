@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -37,10 +38,10 @@ public class MonitorManager {
         this.lock.lock();
 
         try{
-            while(!this.petriNetModel.isSensibilized(t)){
+            while(!this.petriNetModel.isReady(t)){
                 next_t = this.policyManager.whichTransition(this.petriNetModel.getSensibilizedTransitions());
-                this.ConditionQueue[t.getIndex()].await();
                 this.ConditionQueue[next_t.getIndex()].signal();
+                this.ConditionQueue[t.getIndex()].await(this.petriNetModel.getRemainingTime(t), TimeUnit.MILLISECONDS);
             }
             this.petriNetModel.triggerTransition(t);
             assertTrue(this.petriNetModel.checkPlaceInvariants());

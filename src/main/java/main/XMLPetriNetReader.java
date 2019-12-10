@@ -79,6 +79,12 @@ public class XMLPetriNetReader {
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
                 String name = eElement.getAttribute("id");
+                String timed = eElement.getElementsByTagName("timed").item(0).getTextContent();
+                int alpha = 0;
+                int beta = Integer.MAX_VALUE;
+                if(timed.contains("true"))
+                    alpha = (int)Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent().replace("\n",""));
+
                 this.t_list.add(name);
                 t_list.add(new Transition(name, i));
                 if(verbose)
@@ -109,6 +115,28 @@ public class XMLPetriNetReader {
             }
         }
         return p_list;
+    }
+
+    public RealMatrix readTimeIntervals(boolean verbose)
+    {
+        RealMatrix timeIntervals = new Array2DRowRealMatrix(this.transitionNodesList.getLength(), 2);
+
+        for (int i = 0; i < this.transitionNodesList.getLength(); i++) {
+
+            Node nNode = this.transitionNodesList.item(i);
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                String name = eElement.getAttribute("id");
+                String timed = eElement.getElementsByTagName("timed").item(0).getTextContent();
+                int alpha = 0;
+                int beta = Integer.MAX_VALUE;
+                if(timed.contains("true"))
+                    alpha = (int)Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent().replace("\n",""))*1000;
+                timeIntervals.setEntry(getIndex(this.transitionNodesList,name),0,alpha);
+                timeIntervals.setEntry(getIndex(this.transitionNodesList,name),1,beta);
+            }
+        }
+        return timeIntervals;
     }
 
     public RealMatrix readIncidenceMatrix(boolean verbose){

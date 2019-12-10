@@ -1,5 +1,6 @@
 package main;
 
+import org.apache.commons.math3.analysis.function.StepFunction;
 import org.apache.commons.math3.linear.ArrayRealVector;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.commons.math3.linear.RealVector;
@@ -11,12 +12,16 @@ public class PetriNetModel {
     private final boolean verbose;
     private RealMatrix incidence;
     private RealMatrix inhibition;
+    private RealMatrix time_intervals;
     private RealVector marking;
     private RealVector sens_transitions;
+    private RealVector prev_transitions;
+    private RealVector timestamps;
     private ArrayList<Transition> t_list;
     private ArrayList<Place> p_list;
     private PrintUtils utils;
     private ArrayList<PInvariant> pInvariants;
+
 
     PetriNetModel(XMLPetriNetReader pnetreader, boolean verbose) {
         this.incidence = pnetreader.readIncidenceMatrix(verbose);
@@ -24,10 +29,12 @@ public class PetriNetModel {
         this.marking = pnetreader.readMarking(verbose);
         this.t_list = pnetreader.getTransitionsList(verbose);
         this.p_list = pnetreader.getPlacesList(verbose);
+        this.time_intervals = pnetreader.readTimeIntervals(verbose);
         this.calculateSensibilizedTransitions();
         this.utils = new PrintUtils();
         this.verbose = verbose;
         this.pInvariants = new ArrayList<PInvariant>();
+        this.timestamps = new ArrayRealVector(this.sens_transitions.getDimension(), (double)System.currentTimeMillis());
     }
 
     private void calculateSensibilizedTransitions(){
@@ -59,18 +66,50 @@ public class PetriNetModel {
     }
 
     public boolean triggerTransition(Transition t) {
+        this.prev_transitions = this.sens_transitions;
         if(this.isSensibilized(t))
         {
             RealVector triggeredTransition = new ArrayRealVector(this.sens_transitions.getDimension());
             triggeredTransition.setEntry(t.getIndex(), 1.);
             this.marking = this.marking.add(this.incidence.operate(triggeredTransition));
             System.out.print(t.toString()+",");
+            this.timestamps.setEntry(t.getIndex(), (double)System.currentTimeMillis());
+            this.updateTimeStamps();
             return true;
         }
         else
         {
+            this.timestamps.setEntry(t.getIndex(), (double)System.currentTimeMillis());
+            this.updateTimeStamps();
             return false;
         }
+    }
+
+    public boolean isReady(Transition t){
+        return (this.getReadyTransitionsVector().getEntry(t.getIndex())==1.);
+    }
+
+    public long getRemainingTime(Transition t){
+        int index = t.getIndex();
+        double now = (double)System.currentTimeMillis();
+        double transcurredTime = now - this.timestamps.getEntry(index);
+        return (long)(this.time_intervals.getEntry(index, 0) - transcurredTime);
+    }
+
+    private RealVector getReadyTransitionsVector(){
+        StepFunction negToZeroElseOne = new StepFunction(new double[]{-1., 0.}, new double[]{0., 1.});
+        RealVector nowVector = new ArrayRealVector(this.sens_transitions.getDimension(), (double)System.currentTimeMillis());
+        RealVector transcurredTime = nowVector.subtract(this.timestamps);
+        RealVector moreThanAlpha = transcurredTime.subtract(this.time_intervals.getColumnVector(0)).map(negToZeroElseOne);
+        RealVector lessThanBeta = this.time_intervals.getColumnVector(1).subtract(transcurredTime).map(negToZeroElseOne);
+        return this.sens_transitions.ebeMultiply(lessThanBeta.ebeMultiply(moreThanAlpha));
+    }
+
+    private void updateTimeStamps(){
+        double now = (double)System.currentTimeMillis();
+        StepFunction PosToOne = new StepFunction(new double[]{0., 1}, new double[]{0., 1.});
+        RealVector newSensibilizedTransitions = this.sens_transitions.subtract(this.prev_transitions).map(PosToOne);
+        this.timestamps = this.timestamps.subtract(newSensibilizedTransitions.ebeMultiply(this.timestamps.mapSubtract(now)));
     }
 
     public ArrayList<Transition> getSensibilizedTransitions(){
