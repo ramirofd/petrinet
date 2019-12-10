@@ -20,7 +20,7 @@ public class App
         System.out.println("2) Click Start Simulation.");
         petriNetReader.setfXMLFile(file);
         PetriNetModel petriNetModel = new PetriNetModel(petriNetReader, true);
-//        (([a-z_0-9]*,)*?)(?=(pagar_por_a(([a-z_0-9]*,)*?)(?=(avanzar_salida_a(([a-z_0-9]*,)*?)(?=salir_de_playa_a)))))
+
         petriNetModel.addPlaceInvariant(new PInvariant(new String[] {"espacio_para_ticket_a", "sacando_ticket_a"},  1));
         petriNetModel.addPlaceInvariant(new PInvariant(new String[] {"esperando_ticket_a", "espacio_cola_para_ticket_a"},  2));
         petriNetModel.addPlaceInvariant(new PInvariant(new String[] {"cajero", "pagando_a"},  1));
@@ -35,16 +35,14 @@ public class App
         policyManager.setCurrentPolicy("random");
 
         MonitorManager monitor = new MonitorManager(petriNetModel, policyManager);
-        monitor.stopAfterTransitionsFired(5000);
+        monitor.stopAfterTransitionsFired(100);
 
         ArrayList<Task> taskList = new ArrayList<>();
 
-        taskList.add(new Task(new String[] {"entrar_autos_en_a", "pasar_a_sacar_ticket_a", "subir_de_a_a_piso_1"}, monitor, petriNetModel, "Entrada A", true));
-        taskList.add(new Task(new String[] {"estacionar_piso_1"}, monitor, petriNetModel, "Entrar Piso 1", true));
-        taskList.add(new Task(new String[] {"salir_del_piso_1"}, monitor, petriNetModel, "Salir Piso 1", true));
-        taskList.add(new Task(new String[] {"subir_rampa", "estacionar_piso_2"}, monitor, petriNetModel, "Subir Piso 2", true));
-        taskList.add(new Task(new String[] {"salir_del_piso_2", "bajar_rampa"}, monitor, petriNetModel, "Bajar Piso 2", true));
-        taskList.add(new Task(new String[] {"pagar_por_a", "avanzar_salida_a", "salir_de_playa_a"}, monitor, petriNetModel, "Salida A:", true));
+        taskList.add(new Task(new String[] {"T0", "T1", "T2"}, monitor, petriNetModel, "Entrada A", true));
+        taskList.add(new Task(new String[] {"T3", "T4"}, monitor, petriNetModel, "Piso 1", true));
+        taskList.add(new Task(new String[] {"T8", "T9", "T10", "T11"}, monitor, petriNetModel, "Piso 2", true));
+        taskList.add(new Task(new String[] {"T5", "T6"}, monitor, petriNetModel, "Salida A", true));
 
         ThreadGroup tg = new ThreadGroup("Task Threads");
 
