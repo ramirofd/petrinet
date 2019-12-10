@@ -57,6 +57,7 @@ public class MonitorManager {
             return true;
         } catch (InterruptedException e) {
             System.out.println(Thread.currentThread().getName()+": Thread interrumpido");
+            this.petriNetModel.printMarking();
             return false;
         } catch (AssertionError e){
             System.out.println
